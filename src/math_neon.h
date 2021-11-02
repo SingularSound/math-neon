@@ -29,7 +29,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //Default Floating Point value ABI: 0=softfp, 1=hardfp. Only effects *_neon routines.
 //You can access the hardfp versions directly via the *_hard suffix. 
 //You can access the softfp versions directly via the *_soft suffix. 
-#define __MATH_FPABI 	0	
+#define __MATH_FPABI 1
 
 #endif
 
@@ -110,6 +110,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #define dot3_neon		dot3_neon_sfp
 #define dot4_neon		dot4_neon_sfp
 #endif
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
 
 /* 
 function:	enable_runfast
@@ -427,5 +432,9 @@ notes:
 float 		invsqrtf_c(float x);
 float 		invsqrtf_neon_hfp(float x);
 float 		invsqrtf_neon_sfp(float x);
+
+#ifdef __cplusplus
+} // extern "C"
+#endif // __cplusplus
 
 #endif
